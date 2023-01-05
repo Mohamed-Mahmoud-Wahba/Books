@@ -1,0 +1,74 @@
+[dir="rtl"] {
+  $positions: (("t", "top"), ("s", "right"), ("b", "bottom"), ("e", "left"));
+
+  @function sizeValue($key, $value) {
+    @return if($key== "none", 0, $value + $sizeUnit);
+  }
+
+  @each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+      @include margin($sizeValue);
+    }
+
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+      @include padding($sizeValue);
+    }
+
+    @each $position in $positions {
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+
+      .#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+        @include rfs($sizeValue, margin-#{$posValue});
+      }
+
+      .#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+        @include rfs($sizeValue, padding-#{$posValue});
+      }
+    }
+  }
+
+  body {
+    font-family: "HelveticaNeueLTArabic", sans-serif;
+  }
+
+  .was-validated .form-control:invalid,
+  .form-control.is-invalid {
+    background-position: left calc(0.375em + 0.1875rem) center;
+    padding-right: 0.75rem;
+    padding-left: calc(1.5em + 0.75rem);
+  }
+  .form-check-inline {
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+  .form-check {
+    padding-left: 0;
+    padding-right: 1.5em;
+
+    .form-check-input {
+      float: right;
+      margin-right: -1.5em;
+      margin-left: 0;
+    }
+  }
+  .nuxt-icon-more {
+    transform: scaleX(-1);
+  }
+  .contact-info {
+    &:after {
+      transform: scaleX(-1);
+    }
+    &-icon {
+      right: auto !important;
+      left: 0;
+    }
+  }
+  .theMenu-container {
+    left: auto;
+    right: 0;
+  }
+}

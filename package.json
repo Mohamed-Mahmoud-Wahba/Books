@@ -1,0 +1,47 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.3",
+    "@types/vuelidate": "^0.7.15",
+    "@vue/apollo-composable": "^4.0.0-beta.1",
+    "@vue/apollo-option": "^4.0.0-alpha.20",
+    "@vuelidate/core": "^2.0.0",
+    "bootstrap": "^5.2.3",
+    "core-js": "^3.8.3",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "react": "^18.2.0",
+    "sal.js": "^0.8.5",
+    "swiper": "^8.4.5",
+    "vee-validate": "^4.7.3",
+    "vue": "^3.2.13",
+    "vue-awesome-swiper": "^5.0.1",
+    "vue-carousel": "^0.18.0",
+    "vue-class-component": "^8.0.0-0",
+    "vue-i18n": "^9.1.0",
+    "vue-pug-plugin": "^2.0.3",
+    "vue-router": "^4.0.3",
+    "vuex": "^4.0.0"
+  },
+  "devDependencies": {
+    "@intlify/vue-i18n-loader": "^3.0.0",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "typescript": "~4.5.5",
+    "vue-cli-plugin-i18n": "~2.3.1"
+  }
+}

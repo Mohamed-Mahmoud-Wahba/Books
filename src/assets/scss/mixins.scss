@@ -1,0 +1,52 @@
+@mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: 0.3em;
+    height: 0.3em;
+    background-color: transparent;
+  }
+
+  // &::-webkit-scrollbar-track {
+  //   -webkit-box-shadow: none;
+  // }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($dark, 0.3);
+    outline: 0 solid $gray-400;
+    border-radius: 20em;
+
+    &:hover {
+      background: rgba($dark, 1);
+    }
+  }
+}
+@mixin scrollBarLight {
+  &::-webkit-scrollbar {
+    width: 0.3em;
+    height: 0.3em;
+    background-color: transparent;
+  }
+
+  // &::-webkit-scrollbar-track {
+  //   -webkit-box-shadow: none;
+  // }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(#fff, 0.3);
+    outline: 0 solid $gray-400;
+    border-radius: 20em;
+
+    &:hover {
+      background: rgba(#fff, 1);
+    }
+  }
+}
+@function rem($size) {
+  @return math.div($size, 16px) * 1rem;
+}
+
+@function aspectRatio($width, $height) {
+  @return math.div($height, $width) * 100%;
+}
+@function vcalc($size, $unit: vw) {
+  @return (math.div($size, 1920) * 100) + $unit;
+}

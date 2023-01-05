@@ -1,0 +1,35 @@
+.container-max {
+  @include padding(0 80px);
+  width: 100%;
+}
+
+.nuxt-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  &.is-lg {
+    font-size: 1.5em;
+  }
+}
+
+.sticky-top,
+.sticky-lg-top {
+  top: calc($header-height + 50px);
+
+  @include media-breakpoint-down(lg) {
+    top: calc($header-height-md + 20px);
+  }
+}
+.invalid-feedback {
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.form-light {
+  .form-control {
+    background-color: transparent;
+    color: $white;
+    border-color: $white;
+  }
+}

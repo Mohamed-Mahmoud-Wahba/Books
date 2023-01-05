@@ -1,0 +1,302 @@
+// Spacing
+$sizeUnit: rem;
+$marginKey: "m";
+$paddingKey: "p";
+$separator: "-";
+$sizes: (
+  ("e9", 0.2em),
+  ("e8", 0.3em),
+  ("e7", 0.4em),
+  ("e6", 0.5em),
+  ("e5", 0.6em),
+  ("e4", 0.7em),
+  ("e3", 0.8em),
+  ("e2", 0.9em),
+  ("e1", 1em),
+  ("none", 0),
+  ("xxxs", 8px),
+  ("xxs", 10px),
+  ("xs", 14px),
+  ("sm", 20px),
+  ("md", 30px),
+  ("lg", 40px),
+  ("xl", 60px),
+  ("2xl", 80px),
+  ("3xl", 100px),
+  ("4xl", 200px)
+);
+$positions: (("t", "top"), ("e", "right"), ("b", "bottom"), ("s", "left"));
+
+@function sizeValue($key, $value) {
+  @return if($key== "none", 0, $value + $sizeUnit);
+}
+[dir="ltr"] {
+  @each $size in $sizes {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+      @include margin($sizeValue);
+    }
+
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+      @include padding($sizeValue);
+    }
+
+    @each $position in $positions {
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+
+      .#{$marginKey}#{$posKey}#{$separator}#{$sizeKey} {
+        @include rfs($sizeValue, margin-#{$posValue});
+      }
+
+      .#{$paddingKey}#{$posKey}#{$separator}#{$sizeKey} {
+        @include rfs($sizeValue, padding-#{$posValue});
+      }
+    }
+  }
+}
+
+.fs {
+  &-4xl {
+    @include font-size(120px);
+  }
+  &-3xl {
+    @include font-size(90px);
+  }
+  &-2xl {
+    @include font-size(70px);
+  }
+  &-xl {
+    @include font-size(55px);
+  }
+  &-lg {
+    @include font-size(40px);
+  }
+  &-md {
+    @include font-size(30px);
+  }
+  &-sm {
+    @include font-size(22px);
+  }
+  &-s {
+    @include font-size(20px);
+
+  }
+  &-xs {
+    @include font-size(18px);
+  }
+  &-base {
+    @include font-size(16px);
+  }
+  &-xxs {
+    @include font-size(14px);
+  }
+}
+
+.max {
+  &-xxxl {
+    max-width: 1200px;
+  }
+  &-xxl {
+    max-width: 1000px;
+  }
+  &-xl {
+    max-width: 800px;
+  }
+  &-lg {
+    max-width: 600px;
+  }
+  &-md {
+    max-width: 500px;
+  }
+  &-mm {
+    max-width: 400px;
+  }
+  &-sm {
+    max-width: 260px;
+  }
+  &-xs {
+    max-width: 80px;
+  }
+  &-xxs {
+    max-width: 40px;
+  }
+}
+.order {
+  &-lg {
+    @include media-breakpoint-down(lg) {
+      order: -1;
+    }
+  }
+
+  &-md {
+    @include media-breakpoint-down(md) {
+      order: -1;
+    }
+  }
+
+  &-sm {
+    @include media-breakpoint-down(sm) {
+      order: -1;
+    }
+  }
+}
+.fw-medium {
+  font-weight: 500;
+}
+.fw-semi {
+  font-weight: 600;
+}
+.fw-black {
+  font-weight: 900;
+}
+.mb-col {
+  margin-bottom: $grid-gutter-width;
+  @include media-breakpoint-down(sm) {
+    margin-bottom: calc($grid-gutter-width / 2);
+  }
+}
+.mt-col {
+  margin-top: $grid-gutter-width;
+  @include media-breakpoint-down(sm) {
+    margin-top: calc($grid-gutter-width / 2);
+  }
+}
+.bg {
+  &-gray {
+    @each $color, $value in $grays {
+      &-#{$color} {
+        background: #{$value};
+      }
+    }
+  }
+}
+.border {
+  &-gray {
+    @each $color, $value in $grays {
+      &-#{$color} {
+        border-color: #{$value};
+      }
+    }
+  }
+}
+
+.gx {
+  &-md {
+    @include margin-right(-20px);
+    @include margin-left(-20px);
+    > * {
+      @include padding-right(20px);
+      @include padding-left(20px);
+    }
+  }
+  &-lg {
+    @include margin-right(-30px);
+    @include margin-left(-30px);
+    > * {
+      @include padding-right(30px);
+      @include padding-left(30px);
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.flex-auto {
+  flex: 1 1 0%;
+}
+
+.appBox {
+  border: 1px solid currentColor;
+  @include padding(30px);
+  height: 100%;
+  display: block;
+  position: relative;
+  z-index: 2;
+  &-link {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &-icon {
+    width: rem(40px);
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+.appIcon {
+  @include font-size(120px);
+  width: 1em;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  img {
+    max-width: 1em;
+    max-height: 1em;
+  }
+}
+.bg-gray {
+  background: $gray-500;
+}
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+.embed-responsive-16by9::before {
+  padding-top: 56.25%;
+}
+.embed-responsive::before {
+  display: block;
+  content: "";
+}
+.embed-responsive .embed-responsive-item,
+.embed-responsive embed,
+.embed-responsive iframe,
+.embed-responsive object,
+.embed-responsive video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.appLoading {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  &:after {
+    content: " ";
+    display: block;
+    width: 0.8em;
+    height: 0.8em;
+    margin: 0.1em;
+    border-radius: 50%;
+    border: 0.08em solid $dark;
+    border-color: $dark transparent $dark transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

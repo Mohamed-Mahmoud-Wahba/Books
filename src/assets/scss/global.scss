@@ -1,0 +1,59 @@
+@use "sass:math";
+$is-rtl: true;
+$rfs-breakpoint: 1700px;
+$rfs-base-value: 14px;
+
+// Overide bootstrap varibales
+$primary: #ff0045;
+$secondary: #00c5bf;
+$success: #00d267;
+$warning: #ffe200;
+$danger: #ff3300;
+$info: #0049c4;
+$dark: #000000;
+$body-color: #000000;
+$body-bg: #ffffff;
+
+$font-family-base: "cairo", sans-serif;
+$link-color: inherit;
+$link-decoration: none;
+$link-hover-decoration: none;
+$link-hover-color: $primary;
+// $font-weight-base: 300;
+$btn-font-weight: 700;
+$headings-font-weight: 700;
+
+// $grid-gutter-width: 1.25rem;
+
+$input-border-radius: 0;
+$input-border-color: $dark;
+$border-color: $dark;
+$enable-smooth-scroll: false;
+// Bootstrap Configuration Start
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+// Bootstrap Configuration End
+
+// Custom Mixins
+// @import "./mixins.scss";
+
+// Custom variables
+$header-height: rem(180px);
+$header-height-md: rem(120px);
+$font-weight-medium: 500;
+$font-weight-semi: 600;
+$font-weight-black: 900;
+$app-padding: 80px;
+
+//imports
+
+// @import "./fonts.scss";
+@import "./bootstrap.scss";
+@import "./utils.scss";
+@import "./app.scss";
+// @import "./theme.scss";
+@import "./rtl.scss";
+
